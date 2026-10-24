@@ -7,6 +7,7 @@ import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from urllib.parse import urlparse
+from normalize import normalize
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data" / "entries.json"
@@ -99,5 +100,6 @@ def publish(entry, data_path=DATA, history_path=HISTORY):
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         raise SystemExit("Usage: python scripts/publish.py daily.json")
-    daily = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    raw = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    daily = normalize(raw)
     print("Published", publish(daily))
