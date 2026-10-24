@@ -50,11 +50,12 @@ def validate(entry):
             raise ValueError(f"Reference {index}: missing source URL requires verification_reason")
         if not ref.get("image_url") and not ref.get("verification_reason"):
             raise ValueError(f"Reference {index}: missing image URL requires verification_reason")
-        if ref.get("source_url"):
-            canonical = ref["source_url"].rstrip("/").lower()
-            if canonical in seen:
-                raise ValueError("Duplicate source URL within archive")
-            seen.add(canonical)
+        # A single exhibition page can legitimately describe multiple works.
+        # Prefer distinct image URLs; fall back to work identity for missing images.
+        canonical = (ref.get("image_url") or (ref["title"].strip().casefold() + "|" + str(ref.get("creator", "")).strip().casefold())).rstrip("/").casefold()
+        if canonical in seen:
+            raise ValueError("Duplicate work within archive")
+        seen.add(canonical)
     signals = entry.get("signals")
     if not isinstance(signals, list) or not 3 <= len(signals) <= 5:
         raise ValueError("3–5 signals required")
@@ -85,7 +86,7 @@ def publish(entry, data_path=DATA, history_path=HISTORY):
     known = {u for item in history if isinstance(item, dict) for u in item.get("urls", [])}
     repeated = urls & known
     if repeated:
-        raise ValueError(f"Previously published source: {sorted(repeated)[0]}")
+        raise ValueError(f"Previously published work: {sorted(repeated)[0]}")
     # Validate all before writing either file. Atomic replacement per file.
     updated = [x for x in current if isinstance(x, dict) and x.get("date") != entry["date"]] + [entry]
     record = {"day": day, "urls": sorted(urls)}
