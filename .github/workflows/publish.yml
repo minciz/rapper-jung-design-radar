@@ -6,6 +6,11 @@ on:
         description: 'Path to already committed daily JSON file (for example inbox/2026-10-25.json)'
         required: true
         type: string
+      dry_run:
+        description: 'Run validation and inbox selection only, without publishing'
+        required: false
+        default: false
+        type: boolean
 permissions:
   contents: write
 concurrency:
@@ -21,7 +26,10 @@ jobs:
           python-version: '3.12'
       - name: Run publication tests
         run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Inspect inbox selection
+        run: python scripts/select_inbox.py
       - name: Validate and publish
+        if: ${{ !inputs.dry_run }}
         env:
           JSON_PATH: ${{ inputs.json_path }}
         run: |
@@ -36,6 +44,7 @@ jobs:
           PY
           python scripts/publish.py "$JSON_PATH"
       - name: Commit published archive
+        if: ${{ !inputs.dry_run }}
         run: |
           if ! git diff --quiet -- data/entries.json data/history.json; then
             git config user.name 'github-actions[bot]'
