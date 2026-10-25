@@ -9,7 +9,7 @@ KST = timezone(timedelta(hours=9))
 class InboxSelectionTests(unittest.TestCase):
     def sample(self, title="Valid"):
         date=datetime.now(KST).date().isoformat()
-        return {"briefing_date":date,"topic":"test","references":[{"title":title,"original_page_url":"https://example.org/work","verification":{"source_match":True,"image_access":False}}],"trends":[{"title":str(i),"summary":"summary","checked_date":date,"source_urls":["https://example.org/news"]} for i in range(3)]}
+        return {"briefing_date":date,"topic":"test","test_only":False,"references":[{"title":title+str(i),"original_page_url":"https://example.org/work/"+str(i),"verification":{"source_match":True,"image_access":False}} for i in range(12)],"trends":[{"title":str(i),"summary":"summary","checked_date":date,"source_urls":["https://example.org/news"]} for i in range(3)]}
     def test_excludes_test_only_and_invalid(self):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td)
@@ -17,7 +17,7 @@ class InboxSelectionTests(unittest.TestCase):
             (root/"invalid.json").write_text("{}")
             (root/"real.json").write_text(json.dumps(self.sample()))
             self.assertEqual([p.name for p in eligible_paths(root,[])],["real.json"])
-    def test_excludes_published_day(self):
+    def test_excludes_insufficient_reference_count(self):\n        with tempfile.TemporaryDirectory() as td:\n            root=Path(td)\n            raw=self.sample();raw["references"]=raw["references"][:11]\n            (root/"short.json").write_text(json.dumps(raw))\n            self.assertEqual(eligible_paths(root,[]),[])\n    def test_excludes_missing_explicit_production_flag(self):\n        with tempfile.TemporaryDirectory() as td:\n            root=Path(td)\n            raw=self.sample();raw.pop("test_only")\n            (root/"missing_flag.json").write_text(json.dumps(raw))\n            self.assertEqual(eligible_paths(root,[]),[])\n    def test_excludes_published_day(self):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td)
             raw=self.sample()
