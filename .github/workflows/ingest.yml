@@ -1,0 +1,57 @@
+name: Auto-ingest incoming radar JSON (development)
+on:
+  push:
+    branches:
+      - develop/radar-15-reference-layout
+    paths:
+      - 'inbox/*.json'
+permissions:
+  contents: write
+concurrency:
+  group: radar-publish
+  cancel-in-progress: false
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run regression tests
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Validate and ingest changed inbox JSON
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          from scripts.normalize import normalize
+          from scripts.publish import publish
+          changed = subprocess.check_output(
+              ['git', 'diff-tree', '--no-commit-id', '--name-only', '-r', 'HEAD'],
+              text=True
+          ).splitlines()
+          incoming = sorted(p for p in changed if p.startswith('inbox/') and p.endswith('.json'))
+          for filename in incoming:
+              path = Path(filename)
+              if not path.is_file():
+                  continue
+              raw = json.loads(path.read_text(encoding='utf-8'))
+              if raw.get('test_only') is True or raw.get('probe') is True:
+                  print('SKIP test-only:', filename)
+                  continue
+              entry = normalize(raw)
+              day = publish(entry)
+              print('PUBLISHED', day, filename)
+          PY
+      - name: Commit verified archives
+        run: |
+          if ! git diff --quiet -- data/entries.json data/history.json; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add data/entries.json data/history.json
+            git commit -m 'Auto-publish verified incoming radar JSON'
+            git push
+          fi
