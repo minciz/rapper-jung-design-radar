@@ -1,0 +1,49 @@
+{
+  "briefing_date": "2026-10-26T01:00:00+09:00",
+  "topic": "자동 게시 파이프라인 검증용 격리 데이터",
+  "target_count": 15,
+  "shortfall_reason": "격리된 기술 시험용 단일 항목",
+  "test_only": true,
+  "references": [
+    {
+      "title": "PIPELINE-TEST-20261026-UNIQUE-01",
+      "creator": "Test Fixture",
+      "original_page_url": "https://example.com/test-fixture-20261026",
+      "image_url": null,
+      "recommendation": "실제 작품이 아닌 자동 게시 검증용 데이터",
+      "verification": {
+        "source_match": true,
+        "image_access": false,
+        "visually_reviewed": false,
+        "source_match_basis": "Synthetic pipeline fixture; not an independently verified design reference"
+      },
+      "usage_rights_status": "test_only"
+    }
+  ],
+  "trends": [
+    {
+      "title": "TEST SIGNAL 1",
+      "summary": "Synthetic workflow test only",
+      "checked_date": "2026-10-26",
+      "source_urls": [
+        "https://example.com/test-signal-1"
+      ]
+    },
+    {
+      "title": "TEST SIGNAL 2",
+      "summary": "Synthetic workflow test only",
+      "checked_date": "2026-10-26",
+      "source_urls": [
+        "https://example.com/test-signal-2"
+      ]
+    },
+    {
+      "title": "TEST SIGNAL 3",
+      "summary": "Synthetic workflow test only",
+      "checked_date": "2026-10-26",
+      "source_urls": [
+        "https://example.com/test-signal-3"
+      ]
+    }
+  ]
+}
