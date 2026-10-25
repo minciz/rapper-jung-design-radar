@@ -1,0 +1,45 @@
+{
+  "briefing_date": "2026-10-26T10:00:00+09:00",
+  "topic": "자동 인입 파이프라인 격리 테스트",
+  "test_only": true,
+  "references": [
+    {
+      "title": "PIPELINE-INGEST-TEST-20261026",
+      "creator": "Synthetic Fixture",
+      "original_page_url": "https://example.org/fixture-20261026",
+      "image_url": null,
+      "recommendation": "테스트 전용 가상 항목",
+      "verification": {
+        "source_match": true,
+        "image_access": false,
+        "visually_reviewed": false
+      }
+    }
+  ],
+  "trends": [
+    {
+      "title": "Fixture signal 1",
+      "summary": "Technical test",
+      "checked_date": "2026-10-26",
+      "source_urls": [
+        "https://example.org/signal-1"
+      ]
+    },
+    {
+      "title": "Fixture signal 2",
+      "summary": "Technical test",
+      "checked_date": "2026-10-26",
+      "source_urls": [
+        "https://example.org/signal-2"
+      ]
+    },
+    {
+      "title": "Fixture signal 3",
+      "summary": "Technical test",
+      "checked_date": "2026-10-26",
+      "source_urls": [
+        "https://example.org/signal-3"
+      ]
+    }
+  ]
+}
