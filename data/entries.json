@@ -1,70 +1,109 @@
 [
   {
-    "date": "2026-10-25T10:00:00+09:00",
+    "date": "2026-10-25T12:00:00+09:00",
     "theme": "글자의 크기·밀도·배열로 이미지를 만드는 전시·공연 포스터",
-    "target_count": 15,
-    "actual_count": 6,
-    "shortfall_reason": "출처·이미지 확인 자료 6개만 확보",
     "references": [
       {
-        "id": "20261025-01",
         "title": "The Public Theater 시즌 포스터",
         "creator": "Paula Scher",
         "year": null,
-        "image_url": "https://pentagram-production.imgix.net/wp/592c9dae20536/ps-public-full-216.jpg?auto=compress%2Cformat&dpr=1&fit=min&fm=jpg&q=60&s=2819d36c2d74c0d367ec1bebe1e68893&w=1404",
+        "image_url": null,
         "source_url": "https://www.pentagram.com/archive/item/5186",
         "reason": "노랑·검정 대비와 여러 방향의 제목이 인물의 동작에 시각적 속도감을 더한다.",
-        "verification_reason": "검색 미리보기만 확인 · 재게시 허락 미확인"
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
       },
       {
-        "id": "20261025-02",
         "title": "Hiroshima",
         "creator": "Wim Crouwel",
         "year": null,
-        "image_url": "https://gfdg.org/wp-content/uploads/2020/08/GfDg2020_1957_WimCrouwel_Hiroshima-960x720.png",
+        "image_url": null,
         "source_url": "https://gfdg.org/wim-crouwels-hiroshima-plakat-von-1957/",
         "reason": "붉은 면과 압축된 검정 제목이 강한 시각적 무게를 만든다.",
-        "verification_reason": "검색 미리보기만 확인 · 재게시 허락 미확인"
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
       },
       {
-        "id": "20261025-03",
         "title": "10 Zürcher Maler",
         "creator": "Emil Ruder",
         "year": null,
-        "image_url": "https://www.typeroom.eu/assets/original/2020/03/13/Emil_Ruder_Typeroom22.jpg",
+        "image_url": null,
         "source_url": "https://www.typeroom.eu/in-grid-we-trust-emil-ruder-aka-the-iconic-pioneer-of-swiss-style",
         "reason": "거대한 숫자와 가는 이름 목록의 대비가 숫자를 독립적인 이미지로 만든다.",
-        "verification_reason": "검색 미리보기만 확인 · 재게시 허락 미확인"
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
       },
       {
-        "id": "20261025-04",
         "title": "Simpatico",
         "creator": "Paula Scher",
         "year": null,
-        "image_url": "https://cdn11.bigcommerce.com/s-3rl2qg0z2p/images/stencil/original/products/16391/55127/400100290927_89526__53255.1776538384.jpg?c=1",
+        "image_url": null,
         "source_url": "https://store.philamuseum.org/simpatico-public-theater-1994-30-x-46-silkscreen-poster-designed-by-paula-scher/",
         "reason": "거대한 제목과 작은 정보를 중첩해 크기 대비와 긴장을 만든다.",
-        "verification_reason": "검색 미리보기만 확인 · 재게시 허락 미확인"
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
       },
       {
-        "id": "20261025-05",
         "title": "Vormgevers",
         "creator": "Wim Crouwel",
         "year": null,
-        "image_url": "https://www.thegraphicdesignschool.com/static/b9358f3afdbcc227d50dfd7de2b3749e/fd947/wim-crouwel-vormgevers-1968.jpg",
+        "image_url": null,
         "source_url": "https://www.thegraphicdesignschool.com/design-history/wim-crouwel/",
         "reason": "직각으로 구성한 제목과 작은 안내 글자가 일관된 조형 규칙을 공유한다.",
-        "verification_reason": "검색 미리보기만 확인 · 재게시 허락 미확인"
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
       },
       {
-        "id": "20261025-06",
         "title": "Typographie — Hofmann·Ruder 전시 포스터",
         "creator": null,
         "year": null,
-        "image_url": "https://lineto.com/api/front/image/resize?height=1348&key=5ede5fef-7c88-4783-981e-3a2b68d2c6b7.jpg&width=1000",
+        "image_url": null,
         "source_url": "https://lineto.com/articles/ruder2",
         "reason": "빨강·초록 글자의 엇갈림과 크기 차이가 화면의 리듬을 만든다.",
-        "verification_reason": "검색 미리보기만 확인 · 재게시 허락 미확인"
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
       }
     ],
     "signals": [
@@ -86,6 +125,11 @@
         "checked_at": "2026-09",
         "source_url": "https://www.creativebloq.com/design/fonts-typography/is-this-the-worst-typography-cockup-of-2026"
       }
-    ]
+    ],
+    "schema_version": "1.0",
+    "week_id": null,
+    "target_count": 15,
+    "actual_count": 6,
+    "shortfall_reason": "출처·이미지 확인 자료 6개만 확보"
   }
 ]
