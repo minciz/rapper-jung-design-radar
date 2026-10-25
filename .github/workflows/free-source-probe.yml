@@ -1,0 +1,21 @@
+name: Free source collection probe (manual, no publishing)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect candidate metadata without paid API
+        run: python scripts/free_source_probe.py > free_source_probe_result.json
+      - name: Store test-only result
+        uses: actions/upload-artifact@v4
+        with:
+          name: free-source-probe-result
+          path: free_source_probe_result.json
+          retention-days: 3
