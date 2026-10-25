@@ -19,16 +19,16 @@ def normalize(raw):
     topic=raw.get('topic') or raw.get('theme')
     if not isinstance(topic,str) or not topic.strip(): raise ValueError('Missing topic')
     refs=raw.get('references')
-    if not isinstance(refs,list) or len(refs)!=15: raise ValueError('Exactly 15 references required')
+    if not isinstance(refs,list) or not 1<=len(refs)<=15: raise ValueError('1–15 references required')
     result=[]
     for i,r in enumerate(refs,1):
         if not isinstance(r,dict) or not isinstance(r.get('title'),str) or not r['title'].strip(): raise ValueError(f'Reference {i}: missing title')
         v=r.get('verification') or {}
         if not isinstance(v,dict): raise ValueError(f'Reference {i}: invalid verification')
         source=url(r.get('original_page_url') or r.get('source_url'))
-        if not source or v.get('source_match') is not True: raise ValueError(f'Reference {i}: verified original source required')
-        image=url(r.get('image_url')) if v.get('image_access') is True else None
-        result.append({'title':r['title'].strip(),'creator':r.get('creator'),'year':r.get('creation_year',r.get('year')),'image_url':image,'source_url':source,'reason':r.get('recommendation') or r.get('reason'),'visual_features':r.get('visual_features'),'verification_reason':None if image else '원본 이미지 접근 미검증','verification':v,'usage_rights_status':r.get('usage_rights_status')})
+        if not source or v.get('source_match') in (False, None, ''): raise ValueError(f'Reference {i}: source matching evidence required')
+        image=url(r.get('image_url')) if v.get('image_access') in (True, 'verified_accessible') else None
+        result.append({'title':r['title'].strip(),'creator':r.get('creator'),'year':r.get('creation_year',r.get('year')),'image_url':image,'source_url':source,'reason':r.get('recommendation') or r.get('reason'),'visual_features':r.get('visual_features'),'verification_reason':None if image else '이미지 접근 검증 미완료 · 원본 출처에서 확인','verification':v,'usage_rights_status':r.get('usage_rights_status')})
     trends=raw.get('trends') if raw.get('trends') is not None else raw.get('signals')
     if not isinstance(trends,list) or not 3<=len(trends)<=5: raise ValueError('3–5 trends required')
     signals=[]
@@ -41,4 +41,4 @@ def normalize(raw):
         source=url(t.get('source_url')) or next((u for u in urls if url(u)),None)
         if not source: raise ValueError(f'Trend {i}: source required')
         signals.append({'title':t['title'],'summary':t['summary'],'checked_at':checked,'source_url':source})
-    return {'date':d.astimezone(KST).date().isoformat()+'T12:00:00+09:00','theme':topic.strip(),'references':result,'signals':signals,'schema_version':'1.0','week_id':raw.get('week_id')}
+    return {'date':d.astimezone(KST).date().isoformat()+'T12:00:00+09:00','theme':topic.strip(),'references':result,'signals':signals,'schema_version':'1.0','week_id':raw.get('week_id'),'target_count':raw.get('target_count',15),'actual_count':len(result),'shortfall_reason':raw.get('shortfall_reason')}
