@@ -9,5 +9,11 @@
       "typographie — hofmann·ruder 전시 포스터|none",
       "vormgevers|wim crouwel"
     ]
+  },
+  {
+    "day": "2026-10-26",
+    "urls": [
+      "pipeline-ingest-test-20261026|synthetic fixture"
+    ]
   }
 ]

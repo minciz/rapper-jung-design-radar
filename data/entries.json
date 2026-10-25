@@ -131,5 +131,52 @@
     "target_count": 15,
     "actual_count": 6,
     "shortfall_reason": "출처·이미지 확인 자료 6개만 확보"
+  },
+  {
+    "date": "2026-10-26T12:00:00+09:00",
+    "theme": "자동 인입 파이프라인 격리 테스트",
+    "references": [
+      {
+        "title": "PIPELINE-INGEST-TEST-20261026",
+        "creator": "Synthetic Fixture",
+        "year": null,
+        "image_url": null,
+        "source_url": "https://example.org/fixture-20261026",
+        "reason": "테스트 전용 가상 항목",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false
+        },
+        "usage_rights_status": null
+      }
+    ],
+    "signals": [
+      {
+        "title": "Fixture signal 1",
+        "summary": "Technical test",
+        "checked_at": "2026-10-26",
+        "source_url": "https://example.org/signal-1"
+      },
+      {
+        "title": "Fixture signal 2",
+        "summary": "Technical test",
+        "checked_at": "2026-10-26",
+        "source_url": "https://example.org/signal-2"
+      },
+      {
+        "title": "Fixture signal 3",
+        "summary": "Technical test",
+        "checked_at": "2026-10-26",
+        "source_url": "https://example.org/signal-3"
+      }
+    ],
+    "schema_version": "1.0",
+    "week_id": null,
+    "target_count": 15,
+    "actual_count": 1,
+    "shortfall_reason": null
   }
 ]
