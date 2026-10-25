@@ -1,0 +1,8 @@
+{
+  "test": "chat_to_github_write",
+  "date": "2026-10-26",
+  "probe": true,
+  "test_only": true,
+  "source": "codinggu interactive chat",
+  "note": "Does not verify scheduled task write access"
+}
