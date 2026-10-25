@@ -1,0 +1,25 @@
+name: Draft radar candidates (API opt-in)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check generator syntax
+        run: python -m py_compile scripts/generate_candidate.py
+      - name: Generate review-only draft
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/generate_candidate.py
+      - name: Save draft as private workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-review-candidate
+          path: inbox/candidate_*.json
+          retention-days: 3
