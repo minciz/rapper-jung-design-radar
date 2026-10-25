@@ -35,8 +35,8 @@ def validate(entry):
         raise ValueError("Future date")
     required(entry, "theme")
     refs = entry.get("references")
-    if not isinstance(refs, list) or len(refs) != 15:
-        raise ValueError("Exactly 15 references required")
+    if not isinstance(refs, list) or not 1 <= len(refs) <= 15:
+        raise ValueError("1–15 references required")
     seen = set()
     for index, ref in enumerate(refs, 1):
         if not isinstance(ref, dict):
