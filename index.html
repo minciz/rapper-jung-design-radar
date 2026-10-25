@@ -14,7 +14,7 @@ const safe=u=>{try{const x=new URL(u);return ['http:','https:'].includes(x.proto
 const stamp=x=>Date.parse(x.date),recent=x=>Number.isFinite(stamp(x))&&stamp(x)<=Date.now()&&Date.now()-stamp(x)<30*DAY;
 const monday=d=>{const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-(x.getDay()+6)%7);return x};
 let entries=[],selected=0;
-function normalize(raw){if(!Array.isArray(raw))throw Error('entries.json must be an array');return raw.filter(x=>x&&typeof x==='object'&&typeof x.date==='string'&&recent(x)&&typeof x.theme==='string'&&Array.isArray(x.references)&&x.references.length===15).sort((a,b)=>stamp(b)-stamp(a))}
+function normalize(raw){if(!Array.isArray(raw))throw Error('entries.json must be an array');return raw.filter(x=>x&&typeof x==='object'&&typeof x.date==='string'&&recent(x)&&typeof x.theme==='string'&&Array.isArray(x.references)&&x.references.length>0&&x.references.length<=15).sort((a,b)=>stamp(b)-stamp(a))}
 function render(){
 const base=monday(new Date()),tabs=$('#tabs');tabs.replaceChildren();
 for(let i=0;i<5;i++){const b=mk('button','',i===0?'이번 주':i===1?'지난주':i+'주 전');b.type='button';b.setAttribute('aria-selected',String(selected===i));b.onclick=()=>{selected=i;render()};tabs.append(b)}
@@ -25,7 +25,7 @@ const wrap=$('#archives');wrap.replaceChildren();
 if(!selectedEntries.length)wrap.append(mk('div','empty','이 기간에 게시된 아카이브가 없습니다.'));
 for(const day of selectedEntries){
 const section=mk('section','archive'),date=mk('div','eyebrow',new Date(day.date).toLocaleDateString('ko-KR')),title=mk('h2','',day.theme),gallery=mk('div','gallery'),details=mk('div','details');
-section.append(date,title,gallery,details);
+section.append(date,title,mk('div','status',day.references.length+'개 수록 / 목표 '+(day.target_count||15)+'개'+(day.shortfall_reason?' · '+day.shortfall_reason:'')),gallery,details);
 day.references.forEach((ref,i)=>{
 const tile=mk('div','tile'),link=mk('a'),num=mk('span','number',String(i+1).padStart(2,'0'));link.href=safe(ref.source_url)||'#';if(safe(ref.source_url)){link.target='_blank';link.rel='noopener noreferrer'}else link.removeAttribute('href');
 const imageUrl=safe(ref.image_url);
