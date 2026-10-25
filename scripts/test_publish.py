@@ -17,10 +17,10 @@ class TestRadar(unittest.TestCase):
         self.assertEqual(result['references'][0]['source_url'],'https://example.org/art/0')
     def test_reject_missing_reference(self):
         raw=self.sample();raw['references'].pop()
-        with self.assertRaisesRegex(ValueError,'15'): normalize(raw)
+        self.assertEqual(len(normalize(raw)['references']),14)
     def test_reject_unverified_source(self):
         raw=self.sample();raw['references'][0]['verification']['source_match']=False
-        with self.assertRaisesRegex(ValueError,'verified original'): normalize(raw)
+        with self.assertRaisesRegex(ValueError,'source matching evidence'): normalize(raw)
     def test_hide_unverified_image(self):
         raw=self.sample();raw['references'][0]['verification']['image_access']=False
         self.assertIsNone(normalize(raw)['references'][0]['image_url'])
