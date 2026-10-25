@@ -1,0 +1,33 @@
+name: Publish eligible inbox archive
+on:
+  schedule:
+    - cron: '30 1 * * *' # 10:30 KST; only runs from default branch after explicit promotion
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: radar-publish
+  cancel-in-progress: false
+jobs:
+  publish-inbox:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test ingestion and publication
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Publish oldest eligible daily archive
+        run: |
+          JSON_PATH="$(python scripts/select_inbox.py)"
+          if [ "$JSON_PATH" = "NO_ELIGIBLE_INPUT" ]; then
+            echo "No eligible inbox JSON. No changes."
+            exit 0
+          fi
+          python scripts/publish.py "$JSON_PATH"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/entries.json data/history.json
+          git commit -m "Publish validated inbox archive"
+          git push
