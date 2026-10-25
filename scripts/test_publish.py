@@ -30,6 +30,16 @@ class TestRadar(unittest.TestCase):
     def test_reject_future(self):
         raw=self.sample();raw['briefing_date']='2099-01-01'
         with self.assertRaisesRegex(ValueError,'Future'): normalize(raw)
+    def test_replaces_same_day_timestamp_without_duplicate(self):
+        with tempfile.TemporaryDirectory() as td:
+            data=Path(td)/'entries.json';history=Path(td)/'history.json'
+            entry=normalize(self.sample())
+            old=dict(entry);old['date']=entry['date'].replace('T12:00:00','T10:00:00')
+            data.write_text(json.dumps([old],ensure_ascii=False),encoding='utf-8')
+            publish(entry,data,history)
+            saved=json.loads(data.read_text(encoding='utf-8'))
+            self.assertEqual(len(saved),1)
+            self.assertEqual(saved[0]['date'],entry['date'])
     def test_publish_roundtrip_and_duplicate(self):
         with tempfile.TemporaryDirectory() as td:
             data=Path(td)/'entries.json';history=Path(td)/'history.json'
