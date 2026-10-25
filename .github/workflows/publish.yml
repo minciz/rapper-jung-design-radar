@@ -1,0 +1,46 @@
+name: Validate and publish daily archive
+on:
+  workflow_dispatch:
+    inputs:
+      json_path:
+        description: 'Path to already committed daily JSON file (for example inbox/2026-10-25.json)'
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: radar-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run publication tests
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+      - name: Validate and publish
+        env:
+          JSON_PATH: ${{ inputs.json_path }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          p = Path(os.environ['JSON_PATH'])
+          if p.is_absolute() or '..' in p.parts or not str(p).startswith('inbox/') or p.suffix != '.json':
+              raise SystemExit('Only inbox/*.json files are allowed')
+          if not p.is_file():
+              raise SystemExit('Input JSON not found')
+          PY
+          python scripts/publish.py "$JSON_PATH"
+      - name: Commit published archive
+        run: |
+          if ! git diff --quiet -- data/entries.json data/history.json; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add data/entries.json data/history.json
+            git commit -m 'Publish verified daily archive'
+            git push
+          fi
