@@ -1,4 +1,4 @@
-"""Choose the newest eligible unprocessed inbox JSON for GitHub-side publication.
+"""Choose an eligible unprocessed inbox JSON for GitHub-side publication.
 
 This is an inbox consumer, not a bridge to ChatGPT scheduled-task output.
 """
@@ -17,7 +17,7 @@ def eligible_paths(inbox, history):
     for path in sorted(Path(inbox).glob("*.json")):
         try:
             raw = json.loads(path.read_text(encoding="utf-8"))
-            if not isinstance(raw, dict) or raw.get("test_only") is True:
+            if not isinstance(raw, dict) or raw.get("test_only") is not False:\n                continue\n            if len(raw.get("references", [])) < 12:
                 continue
             entry = normalize(raw)
             day, _ = validate(entry)
