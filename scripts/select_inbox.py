@@ -17,7 +17,9 @@ def eligible_paths(inbox, history):
     for path in sorted(Path(inbox).glob("*.json")):
         try:
             raw = json.loads(path.read_text(encoding="utf-8"))
-            if not isinstance(raw, dict) or raw.get("test_only") is not False:\n                continue\n            if len(raw.get("references", [])) < 12:
+            if not isinstance(raw, dict) or raw.get("test_only") is not False:
+                continue
+            if len(raw.get("references", [])) < 12:
                 continue
             entry = normalize(raw)
             day, _ = validate(entry)
