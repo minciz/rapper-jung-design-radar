@@ -19,7 +19,7 @@ def normalize(raw):
     topic=raw.get('topic') or raw.get('theme')
     if not isinstance(topic,str) or not topic.strip(): raise ValueError('Missing topic')
     refs=raw.get('references')
-    if not isinstance(refs,list) or not 1<=len(refs)<=15: raise ValueError('1–15 references required')
+    if not isinstance(refs,list) or not 12<=len(refs)<=15: raise ValueError('12–15 references required')
     result=[]
     for i,r in enumerate(refs,1):
         if not isinstance(r,dict) or not isinstance(r.get('title'),str) or not r['title'].strip(): raise ValueError(f'Reference {i}: missing title')
