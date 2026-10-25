@@ -17,7 +17,19 @@ class InboxSelectionTests(unittest.TestCase):
             (root/"invalid.json").write_text("{}")
             (root/"real.json").write_text(json.dumps(self.sample()))
             self.assertEqual([p.name for p in eligible_paths(root,[])],["real.json"])
-    def test_excludes_insufficient_reference_count(self):\n        with tempfile.TemporaryDirectory() as td:\n            root=Path(td)\n            raw=self.sample();raw["references"]=raw["references"][:11]\n            (root/"short.json").write_text(json.dumps(raw))\n            self.assertEqual(eligible_paths(root,[]),[])\n    def test_excludes_missing_explicit_production_flag(self):\n        with tempfile.TemporaryDirectory() as td:\n            root=Path(td)\n            raw=self.sample();raw.pop("test_only")\n            (root/"missing_flag.json").write_text(json.dumps(raw))\n            self.assertEqual(eligible_paths(root,[]),[])\n    def test_excludes_published_day(self):
+    def test_excludes_insufficient_reference_count(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            raw=self.sample();raw["references"]=raw["references"][:11]
+            (root/"short.json").write_text(json.dumps(raw))
+            self.assertEqual(eligible_paths(root,[]),[])
+    def test_excludes_missing_explicit_production_flag(self):
+        with tempfile.TemporaryDirectory() as td:
+            root=Path(td)
+            raw=self.sample();raw.pop("test_only")
+            (root/"missing_flag.json").write_text(json.dumps(raw))
+            self.assertEqual(eligible_paths(root,[]),[])
+    def test_excludes_published_day(self):
         with tempfile.TemporaryDirectory() as td:
             root=Path(td)
             raw=self.sample()
