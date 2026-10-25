@@ -1,0 +1,6 @@
+{
+  "test_only": true,
+  "probe": true,
+  "purpose": "Verify GitHub push-triggered workflow without publishing",
+  "date": "2026-10-26"
+}
