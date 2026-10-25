@@ -31,7 +31,7 @@ def validate(entry):
         raise ValueError("Invalid ISO date") from exc
     if dt.tzinfo is None:
         raise ValueError("Date must include timezone")
-    if dt.astimezone(timezone.utc) > datetime.now(timezone.utc) + timedelta(minutes=5):
+    if dt.astimezone(KST).date() > datetime.now(KST).date():
         raise ValueError("Future date")
     required(entry, "theme")
     refs = entry.get("references")
