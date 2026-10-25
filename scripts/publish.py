@@ -1,4 +1,4 @@
-"""Validate and publish a 15-reference daily archive from an incoming JSON file.
+"""Validate and publish a 1–15-reference daily archive from an incoming JSON file.
 Usage: python scripts/publish.py path/to/day.json
 This command does not connect to a ChatGPT scheduled task.
 """
@@ -77,6 +77,13 @@ def load(path, fallback):
         raise ValueError(f"{path.name} must be an array")
     return value
 
+def _same_kst_day(value, day):
+    try:
+        dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
+        return dt.tzinfo is not None and dt.astimezone(KST).date().isoformat() == day
+    except ValueError:
+        return False
+
 def publish(entry, data_path=DATA, history_path=HISTORY):
     day, urls = validate(entry)
     current = load(data_path, [])
@@ -88,7 +95,7 @@ def publish(entry, data_path=DATA, history_path=HISTORY):
     if repeated:
         raise ValueError(f"Previously published work: {sorted(repeated)[0]}")
     # Validate all before writing either file. Atomic replacement per file.
-    updated = [x for x in current if isinstance(x, dict) and x.get("date") != entry["date"]] + [entry]
+    updated = [x for x in current if not (isinstance(x, dict) and isinstance(x.get("date"), str) and _same_kst_day(x["date"], day))] + [entry]
     record = {"day": day, "urls": sorted(urls)}
     new_history = history + [record]
     for path, value in ((data_path, updated), (history_path, new_history)):
