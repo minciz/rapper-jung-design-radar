@@ -1,0 +1,14 @@
+{
+  "test_only": true,
+  "kind": "github_handoff_probe",
+  "owner": "2inja",
+  "branch": "test/2inja-collaboration-audit",
+  "issue": 2,
+  "expected_reference_count": 15,
+  "checks": [
+    "write_test_branch",
+    "read_back_exact_content",
+    "main_unchanged"
+  ],
+  "production_publish": false
+}
