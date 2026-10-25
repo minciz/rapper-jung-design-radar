@@ -21,6 +21,9 @@ class TestRadar(unittest.TestCase):
     def test_reject_unverified_source(self):
         raw=self.sample();raw['references'][0]['verification']['source_match']=False
         with self.assertRaisesRegex(ValueError,'source matching evidence'): normalize(raw)
+    def test_reject_string_false_source_flag(self):
+        raw=self.sample();raw['references'][0]['verification']['source_match']='false'
+        with self.assertRaisesRegex(ValueError,'source matching evidence'): normalize(raw)
     def test_hide_unverified_image(self):
         raw=self.sample();raw['references'][0]['verification']['image_access']=False
         self.assertIsNone(normalize(raw)['references'][0]['image_url'])
