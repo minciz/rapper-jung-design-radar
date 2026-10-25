@@ -26,7 +26,7 @@ def normalize(raw):
         v=r.get('verification') or {}
         if not isinstance(v,dict): raise ValueError(f'Reference {i}: invalid verification')
         source=url(r.get('original_page_url') or r.get('source_url'))
-        if not source or v.get('source_match') in (False, None, ''): raise ValueError(f'Reference {i}: source matching evidence required')
+        if not source or v.get('source_match') is not True: raise ValueError(f'Reference {i}: source matching evidence required')
         image=url(r.get('image_url')) if v.get('image_access') in (True, 'verified_accessible') else None
         result.append({'title':r['title'].strip(),'creator':r.get('creator'),'year':r.get('creation_year',r.get('year')),'image_url':image,'source_url':source,'reason':r.get('recommendation') or r.get('reason'),'visual_features':r.get('visual_features'),'verification_reason':None if image else '이미지 접근 검증 미완료 · 원본 출처에서 확인','verification':v,'usage_rights_status':r.get('usage_rights_status')})
     trends=raw.get('trends') if raw.get('trends') is not None else raw.get('signals')
