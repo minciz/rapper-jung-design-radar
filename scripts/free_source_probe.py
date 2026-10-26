@@ -7,8 +7,11 @@ from urllib.parse import urlparse
 
 FEEDS = {
     "Creative Boom": "https://www.creativeboom.com/feed/",
-    "It's Nice That": "https://www.itsnicethat.com/rss",
+    "Creative Bloq": "https://www.creativebloq.com/feeds/all",
+    "Designboom": "https://www.designboom.com/feed/",
+    "The Brand Identity": "https://the-brandidentity.com/feed",
     "Design Milk": "https://design-milk.com/feed/",
+    "Creative Review": "https://www.creativereview.co.uk/feed/",
 }
 UA = {"User-Agent": "DesignRadarResearchProbe/0.1 (+source-link-only)"}
 
@@ -24,11 +27,17 @@ def probe():
                 payload = response.read(2_000_000)
             root = ET.fromstring(payload)
             entries = root.findall(".//item")
+            if not entries:
+                atom = "{http://www.w3.org/2005/Atom}"
+                entries = root.findall(".//" + atom + "entry")
             item["entries"] = len(entries)
             item["status"] = "ok"
             for entry in entries:
-                title = (entry.findtext("title") or "").strip()
+                title = (entry.findtext("title") or entry.findtext("{http://www.w3.org/2005/Atom}title") or "").strip()
                 link = (entry.findtext("link") or "").strip()
+                if not link:
+                    node = entry.find("{http://www.w3.org/2005/Atom}link")
+                    link = node.get("href", "") if node is not None else ""
                 parsed = urlparse(link)
                 if not title or parsed.scheme not in ("https", "http") or not parsed.netloc:
                     continue
