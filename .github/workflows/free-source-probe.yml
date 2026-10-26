@@ -1,5 +1,10 @@
 name: Free source collection probe (manual, no publishing)
 on:
+  push:
+    branches:
+      - test/free-source-collector-20261026
+    paths:
+      - '.github/workflows/free-source-probe.yml'
   workflow_dispatch:
 permissions:
   contents: read
