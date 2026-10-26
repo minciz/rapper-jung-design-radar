@@ -9,22 +9,25 @@ TERMS = {
     "visual": 4, "collage": 6, "artwork": 4, "typeface": 7,
     "photograph": 2, "campaign": 4, "creative": 2
 }
-EXCLUDE = ("shopping guide", "gift guide", "sale", "discount", "buy now")
+EXCLUDE = ("shopping guide", "gift guide", "sale", "discount", "buy now", "resort", "dreamhouse", "car design", "automotive", "home decor", "furniture", "clay pot", "dessert", "bamboo forest", "coast of", "brings his creative world home")
+# Generic words such as "design" or "creative" alone do not prove graphic-design relevance.
+GRAPHIC_SIGNALS = ("graphic", "typograph", "poster", "illustrat", "identity", "branding", "rebrand", "logo", "packaging", "editorial", "print", "collage", "typeface", "lettering", "campaign", "visual identity", "art direction", "book design")
 
 def rank(item):
     title = item.get("title", "").lower()
     score = sum(weight for word, weight in TERMS.items() if word in title)
     if any(term in title for term in EXCLUDE):
-        score -= 15
+        score -= 100
+    if not any(term in title for term in GRAPHIC_SIGNALS):
+        score -= 100
     verified = item.get("verification", {})
     if not (verified.get("source_match") and verified.get("image_access")):
         score -= 100
     return score
 
 def shortlist(items, limit=15):
-    candidates = [x for x in items if rank(x) >= 0]
+    candidates = [x for x in items if rank(x) >= 3]
     candidates.sort(key=lambda x: (-rank(x), x.get("source_feed", ""), x.get("source_url", "")))
-    sources = list(dict.fromkeys(x.get("source_feed", "") for x in candidates))
     selected, counts, seen = [], Counter(), set()
     while len(selected) < limit:
         available = [x for x in candidates if x["source_url"] not in seen]
@@ -52,6 +55,8 @@ if __name__ == "__main__":
         "selection_type": "automated_preliminary_review_queue_not_curated",
         "visual_reviews_completed": 0, "target_count": 15,
         "candidate_count": len(data["items"]), "queued_count": len(picks),
+        "shortfall_count": max(0, 15-len(picks)),
+        "shortfall_reason": "Insufficient graphic-design-relevant, metadata-verified candidates; never pad to 15" if len(picks)<15 else None,
         "items": picks
     }
     with open("free_source_review_queue.json", "w", encoding="utf-8") as f:
