@@ -7,6 +7,7 @@ on:
       - '.github/workflows/free-source-probe.yml'
       - 'scripts/verify_free_candidates.py'
       - 'scripts/build_free_review_queue.py'
+      - 'scripts/build_site_preview.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,6 +25,8 @@ jobs:
         run: python scripts/verify_free_candidates.py free_source_probe_result.json
       - name: Build non-publishing review queue
         run: python scripts/build_free_review_queue.py free_source_verification_result.json
+      - name: Generate blocked site-schema preview
+        run: python scripts/build_site_preview.py free_source_review_queue.json
       - name: Store test-only result
         uses: actions/upload-artifact@v4
         with:
@@ -32,4 +35,5 @@ jobs:
             free_source_probe_result.json
             free_source_verification_result.json
             free_source_review_queue.json
+            free_source_site_preview.json
           retention-days: 3
