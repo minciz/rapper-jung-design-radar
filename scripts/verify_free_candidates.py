@@ -24,7 +24,7 @@ def check(item):
  return result
 if __name__=="__main__":
  with open(sys.argv[1],encoding="utf-8") as f:source=json.load(f)
- items=[check(x) for x in source["candidates"][:40]]
+ items=[check(x) for x in source["candidates"]]
  report={"test_only":True,"published":False,"visually_reviewed":0,"source_confirmed":sum(x["verification"]["source_match"] for x in items),"image_accessible":sum(x["verification"]["image_access"] for x in items),"items":items}
  with open("free_source_verification_result.json","w",encoding="utf-8") as f:json.dump(report,f,ensure_ascii=False,indent=2)
  print(json.dumps({k:v for k,v in report.items() if k!="items"}))
