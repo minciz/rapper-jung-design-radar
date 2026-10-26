@@ -5,6 +5,7 @@ on:
       - test/free-source-collector-20261026
     paths:
       - '.github/workflows/free-source-probe.yml'
+      - 'scripts/verify_free_candidates.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,9 +19,13 @@ jobs:
           python-version: '3.12'
       - name: Collect candidate metadata without paid API
         run: python scripts/free_source_probe.py > free_source_probe_result.json
+      - name: Verify source pages and image links
+        run: python scripts/verify_free_candidates.py free_source_probe_result.json
       - name: Store test-only result
         uses: actions/upload-artifact@v4
         with:
           name: free-source-probe-result
-          path: free_source_probe_result.json
+          path: |
+            free_source_probe_result.json
+            free_source_verification_result.json
           retention-days: 3
