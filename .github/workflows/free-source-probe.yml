@@ -5,6 +5,7 @@ on:
       - test/free-source-collector-20261026
     paths:
       - '.github/workflows/free-source-probe.yml'
+      - 'scripts/free_source_probe.py'
       - 'scripts/verify_free_candidates.py'
       - 'scripts/build_free_review_queue.py'
       - 'scripts/build_site_preview.py'
