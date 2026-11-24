@@ -1,0 +1,6 @@
+{
+  "test_only": true,
+  "status": "manual_write_probe",
+  "branch": "develop/radar-15-reference-layout",
+  "reason": "Check connector write permission; not scheduled task"
+}

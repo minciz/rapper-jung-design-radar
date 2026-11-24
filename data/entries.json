@@ -1,1 +1,135 @@
-[]
+[
+  {
+    "date": "2026-10-25T12:00:00+09:00",
+    "theme": "글자의 크기·밀도·배열로 이미지를 만드는 전시·공연 포스터",
+    "references": [
+      {
+        "title": "The Public Theater 시즌 포스터",
+        "creator": "Paula Scher",
+        "year": null,
+        "image_url": null,
+        "source_url": "https://www.pentagram.com/archive/item/5186",
+        "reason": "노랑·검정 대비와 여러 방향의 제목이 인물의 동작에 시각적 속도감을 더한다.",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
+      },
+      {
+        "title": "Hiroshima",
+        "creator": "Wim Crouwel",
+        "year": null,
+        "image_url": null,
+        "source_url": "https://gfdg.org/wim-crouwels-hiroshima-plakat-von-1957/",
+        "reason": "붉은 면과 압축된 검정 제목이 강한 시각적 무게를 만든다.",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
+      },
+      {
+        "title": "10 Zürcher Maler",
+        "creator": "Emil Ruder",
+        "year": null,
+        "image_url": null,
+        "source_url": "https://www.typeroom.eu/in-grid-we-trust-emil-ruder-aka-the-iconic-pioneer-of-swiss-style",
+        "reason": "거대한 숫자와 가는 이름 목록의 대비가 숫자를 독립적인 이미지로 만든다.",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
+      },
+      {
+        "title": "Simpatico",
+        "creator": "Paula Scher",
+        "year": null,
+        "image_url": null,
+        "source_url": "https://store.philamuseum.org/simpatico-public-theater-1994-30-x-46-silkscreen-poster-designed-by-paula-scher/",
+        "reason": "거대한 제목과 작은 정보를 중첩해 크기 대비와 긴장을 만든다.",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
+      },
+      {
+        "title": "Vormgevers",
+        "creator": "Wim Crouwel",
+        "year": null,
+        "image_url": null,
+        "source_url": "https://www.thegraphicdesignschool.com/design-history/wim-crouwel/",
+        "reason": "직각으로 구성한 제목과 작은 안내 글자가 일관된 조형 규칙을 공유한다.",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
+      },
+      {
+        "title": "Typographie — Hofmann·Ruder 전시 포스터",
+        "creator": null,
+        "year": null,
+        "image_url": null,
+        "source_url": "https://lineto.com/articles/ruder2",
+        "reason": "빨강·초록 글자의 엇갈림과 크기 차이가 화면의 리듬을 만든다.",
+        "visual_features": null,
+        "verification_reason": "이미지 접근 검증 미완료 · 원본 출처에서 확인",
+        "verification": {
+          "source_match": true,
+          "image_access": false,
+          "visually_reviewed": false,
+          "source_match_basis": "Original page URL recorded in existing dataset; artwork match NOT independently verified"
+        },
+        "usage_rights_status": "unconfirmed"
+      }
+    ],
+    "signals": [
+      {
+        "title": "TypoCircle 50주년 포스터 프로젝트",
+        "summary": "50주년 기념 신규 포스터 50종 소개",
+        "checked_at": "2026-10-07",
+        "source_url": "https://www.creativeboom.com/news/fifty-years-on-heres-why-typocircle-still-matters-to-creatives-and-deserves-celebrating/"
+      },
+      {
+        "title": "편집 지면을 이미지로 만드는 타이포그래피",
+        "summary": "Dan Streeting의 글자를 건축과 포스터처럼 다루는 편집 작업 회고",
+        "checked_at": "2026-06-12",
+        "source_url": "https://design.newcity.com/2026/06/12/dan-streeting-on-designing-the-decade/"
+      },
+      {
+        "title": "게임 제목의 타이포그래피 오독 논란",
+        "summary": "In Us 게임 제목의 오독 사례를 통해 표현적인 글자와 가독성의 관계를 살펴봄",
+        "checked_at": "2026-09",
+        "source_url": "https://www.creativebloq.com/design/fonts-typography/is-this-the-worst-typography-cockup-of-2026"
+      }
+    ],
+    "schema_version": "1.0",
+    "week_id": null,
+    "target_count": 15,
+    "actual_count": 6,
+    "shortfall_reason": "출처·이미지 확인 자료 6개만 확보"
+  }
+]

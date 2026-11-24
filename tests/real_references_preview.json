@@ -1,0 +1,143 @@
+{
+  "test_only": true,
+  "theme": "타이포그래피 포스터의 그리드와 실험 — 1950s~2020s",
+  "references": [
+    {
+      "title": "Schützenfest",
+      "creator": "Fridolin Müller",
+      "year": 1963,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4582-copy-725x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Olivetti",
+      "creator": "Ernst Hiestand",
+      "year": 1961,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4579-copy-726x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Typographie",
+      "creator": "Robert Büchler",
+      "year": 1960,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4588-copy-725x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Stadt Theater Basel",
+      "creator": "Armin Hofmann",
+      "year": 1965,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4591-copy-725x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Musica Viva",
+      "creator": "Josef Müller-Brockmann",
+      "year": 1958,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4599-copy-725x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Weniger Lärm",
+      "creator": "Josef Müller-Brockmann",
+      "year": 1960,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4607-copy-723x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Citroën",
+      "creator": "Karl Gerstner & Markus Kutter",
+      "year": 1958,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4592-copy-724x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Auch Du Bist Liberal",
+      "creator": "Karl Gerstner",
+      "year": 1959,
+      "source_url": "https://posterhouse.org/exhibition/the-swiss-grid/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2019/10/PH191122_4601-copy-725x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Big Cheese",
+      "creator": "Eric Donelan & Bob Aufuldish",
+      "year": 1992,
+      "source_url": "https://posterhouse.org/exhibition/the-revolution-will-be-digitized-typefaces-from-emigre-fuse/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/12/1.-PH.715a.low_.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "OutWest",
+      "creator": "Edward Fella",
+      "year": 1993,
+      "source_url": "https://posterhouse.org/exhibition/the-revolution-will-be-digitized-typefaces-from-emigre-fuse/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/12/3.-PH.732.low_-705x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Can You…?",
+      "creator": "Phil Baines",
+      "year": 1991,
+      "source_url": "https://posterhouse.org/exhibition/the-revolution-will-be-digitized-typefaces-from-emigre-fuse/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/12/EF_001-725x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "DearJohn",
+      "creator": "Barbara Butterweck",
+      "year": 1992,
+      "source_url": "https://posterhouse.org/exhibition/the-revolution-will-be-digitized-typefaces-from-emigre-fuse/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/12/EF_003-723x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Weissenhof Grotesk Play",
+      "creator": "Stefanie Schwarz",
+      "year": 2022,
+      "source_url": "https://posterhouse.org/exhibition/advertising-type-women-in-digital-design/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/09/AT_007-726x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Dark Academia",
+      "creator": "Celine Hurka & Carmen Dusmet Carrasco",
+      "year": 2022,
+      "source_url": "https://posterhouse.org/exhibition/advertising-type-women-in-digital-design/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/09/AT_002-721x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    },
+    {
+      "title": "Typefesse",
+      "creator": "Océane Juvin",
+      "year": 2019,
+      "source_url": "https://posterhouse.org/exhibition/advertising-type-women-in-digital-design/",
+      "image_url": "https://posterhouse.org/wp-content/uploads/2022/09/AT_014-724x1024.jpg",
+      "reason": "Poster House 전시 선정 작품 · 타이포그래피와 시각 구성 비교",
+      "verification_note": "전시 페이지에서 이미지 URL 확인. 외부 브라우저 실제 표시 여부는 미검증."
+    }
+  ],
+  "source": "Poster House museum exhibitions",
+  "disclaimer": "실제 전시 작품 15개를 이용한 비공개 운영 브랜치 테스트 데이터. 매일 아카이브 정식 게시 아님."
+}
